@@ -1,4 +1,4 @@
-# Prosty workflow do budowania i deployowania strony na GitHub Pages
+# Zaktualizowany workflow do budowania i deployowania strony na GitHub Pages
 name: Deploy GitHub Pages
 
 on:
@@ -29,9 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # ZMIANA: Wersja v3 -> v4
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # ZMIANA: Wersja v3 -> v4
         with:
           node-version: 18
           cache: "npm"
@@ -40,12 +40,12 @@ jobs:
       - name: Build
         run: npm run build
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v5 # ZMIANA: Wersja v3 -> v5
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3 # ZMIANA: Wersja v2 -> v3
         with:
           # Uploaduj folder "dist"
           path: "./dist"
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4 # ZMIANA: Wersja v2 -> v4
