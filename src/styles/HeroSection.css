@@ -1,0 +1,237 @@
+/* src/styles/HeroSection.css */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.15; }
+}
+
+/* ======================================= */
+/* === STYL PODSTAWOWY (MOBILE < 768px) === */
+/* ======================================= */
+
+.hero-section {
+  padding-top: 5rem;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom right, var(--color-pink-50), var(--color-white));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.hero-bg-bubbles div {
+  position: absolute;
+  border-radius: 50%;
+  animation: pulse-slow 5s infinite ease-in-out;
+}
+.bubble-1 { top: 10%; left: 5%; width: 80px; height: 80px; background-color: var(--color-pink-200); opacity: 0.3; }
+.bubble-2 { top: 70%; left: 15%; width: 120px; height: 120px; background-color: var(--color-pink-100); opacity: 0.2; animation-delay: 1s; }
+.bubble-3 { bottom: 10%; left: 5%; width: 50px; height: 50px; background-color: var(--color-pink-300); opacity: 0.25; animation-delay: 2s; }
+.bubble-4 { top: 15%; right: 10%; width: 100px; height: 100px; background-color: var(--color-pink-200); opacity: 0.2; animation-delay: 3s; }
+.bubble-5 { bottom: 20%; right: 5%; width: 70px; height: 70px; background-color: var(--color-pink-100); opacity: 0.25; animation-delay: 4s; }
+
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* Mniejszy odstęp na mobile */
+  align-items: center;
+  width: 100%;
+}
+
+.hero-text-content {
+  order: 2;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-gray-900);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+.hero-title .subtitle {
+  color: var(--color-pink-500);
+  display: block;
+}
+.hero-description {
+  display: none; /* Ukryty na mobile */
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-cta-primary, .hero-cta-secondary {
+  padding: 1rem 2rem; /* Lekko mniejsze przyciski na mobile */
+  font-size: 1rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.hero-cta-primary {
+  background-color: var(--color-pink-500);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+}
+.hero-cta-primary:hover {
+  background-color: var(--color-pink-600);
+  transform: scale(1.05);
+}
+.hero-cta-secondary {
+  border: 2px solid var(--color-pink-500);
+  color: var(--color-pink-500);
+  background: transparent;
+}
+.hero-cta-secondary:hover {
+  background-color: var(--color-pink-500);
+  color: var(--color-white);
+}
+
+.hero-image-content {
+  order: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image-wrapper {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-image-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-image: linear-gradient(to bottom right, var(--color-pink-400), var(--color-pink-600));
+  padding: 1.25rem;
+  box-shadow: var(--shadow-2xl);
+  transition: transform 0.5s;
+}
+.hero-image-wrapper:hover .hero-image-bg {
+  transform: rotate(3deg);
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.hero-social-bubble {
+  position: absolute;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s;
+  cursor: pointer;
+  color: var(--color-pink-500);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-social-bubble:hover {
+  transform: scale(1.1);
+}
+.bubble-instagram { top: 2.5rem; right: -0.5rem; }
+.bubble-facebook { top: 6rem; left: -0.5rem; }
+.bubble-star { bottom: -4rem; right: 5rem; }
+.bubble-star svg { fill: var(--color-pink-500); }
+
+/* ====================================================== */
+/* === NOWY BREAKPOINT: TABLET (średnie ekrany > 768px) === */
+/* ====================================================== */
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  .hero-text-content {
+    order: 1;
+    text-align: left;
+  }
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  .hero-description {
+    display: block; /* Pokazujemy opis */
+    font-size: 1.1rem;
+    margin-left: 0;
+  }
+  .hero-buttons {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .hero-image-content {
+    order: 2;
+  }
+  .hero-image-wrapper {
+    width: 22rem; /* Lekko powiększamy zdjęcie */
+    height: 22rem;
+  }
+}
+
+/* ========================================================== */
+/* === BREAKPOINT: LAPTOP / DESKTOP (duże ekrany > 1024px) === */
+/* ========================================================== */
+@media (min-width: 1024px) {
+  .hero-grid {
+    gap: 4rem; /* Większy odstęp */
+  }
+  .hero-title {
+    font-size: 3.8rem; /* Zmniejszamy, żeby się zmieściło */
+  }
+  .hero-description {
+    font-size: 1.25rem;
+  }
+  .hero-cta-primary, .hero-cta-secondary {
+    padding: 1.1rem 2.2rem; /* Przywracamy większe przyciski */
+    font-size: 1.1rem;
+  }
+  .hero-image-wrapper {
+    width: 25rem; /* Zmniejszamy, żeby się zmieściło */
+    height: 25rem;
+  }
+}
+
+/* ============================================================== */
+/* === BREAKPOINT: BARDZO DUŻE MONITORY (ekrany > 1280px)      === */
+/* ============================================================== */
+@media (min-width: 1280px) {
+   .hero-title {
+    font-size: 4rem; /* Na bardzo dużych ekranach możemy sobie pozwolić na większy tekst */
+  }
+  .hero-image-wrapper {
+    width: 27rem; /* Przywracamy duży rozmiar zdjęcia */
+    height: 27rem;
+  }
+}

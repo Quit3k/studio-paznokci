@@ -1,0 +1,134 @@
+/* src/styles/AboutSection.css */
+
+/* === STYL PODSTAWOWY (MOBILE < 768px) === */
+.about-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 0;
+  display: flex;
+  align-items: flex-start;
+  background-color: var(--color-white);
+  box-sizing: border-box;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.about-header .section-title {
+  font-size: 3.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-image-column {
+  display: flex;
+  justify-content: center;
+  transform: translateX(-5%);
+}
+
+.about-image-wrapper {
+  position: relative;
+  width: 19.5rem;
+  height: 19.5rem;
+}
+
+.about-image-bg {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background-image: linear-gradient(to bottom right, var(--color-pink-400), var(--color-pink-600));
+  padding: 1.25rem;
+  box-shadow: var(--shadow-2xl);
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.stat-bubble {
+  position: absolute;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-pink-500);
+  border-radius: 50%;
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stat-bubble-desktop {
+  display: none;
+}
+
+.stat-bubble-mobile {
+  width: 72px;
+  height: 72px;
+}
+.stat-bubble-mobile .value { font-size: 1.3rem; font-weight: 700; color: var(--color-pink-500); }
+.stat-bubble-mobile .label { font-size: 0.7rem; color: var(--color-gray-900); line-height: 1; }
+
+/* ZMIANA 1, 2, 3: Finałowe pozycje bąbelków na mobile */
+.stat-bubble-mobile-1 { top: -1rem; left: 0rem; }
+.stat-bubble-mobile-2 { top: 5rem; right: -4.5rem; }
+.stat-bubble-mobile-3 { bottom: -3rem; left: 3rem; }
+
+.about-text-content { text-align: center; }
+.about-subtitle { font-size: 1.7rem; color: var(--color-gray-900); margin-bottom: 0rem; font-weight: 300; }
+.about-subtitle .highlight { color: var(--color-pink-500); font-weight: 700; }
+.about-description { font-size: 1.1rem; color: var(--color-gray-600); line-height: 1.8; margin-top: 1.5rem; margin-bottom: 2.5rem; }
+.stats-box-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+.stats-box { text-align: center; padding: 1rem; background-color: transparent; border: 2px solid var(--color-pink-500); border-radius: 0.75rem; }
+
+/* ZMIANA 4: Usunięcie marginesu z wartości w kafelkach */
+.stats-box .value { font-size: 1.875rem; font-weight: 700; color: var(--color-pink-500); margin-bottom: 0; }
+.stats-box .label { color: var(--color-gray-900); }
+.about-cta-button { border: 2px solid var(--color-pink-500); color: var(--color-pink-500); background: transparent; padding: 1rem 2rem; font-size: 1rem; border-radius: 9999px; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+.about-cta-button:hover { background-color: var(--color-pink-500); color: var(--color-white); }
+
+/* === TABLET & DESKTOP (> 1024px) === */
+@media (min-width: 1024px) {
+  .about-section { height: 100vh; min-height: initial; padding-top: 5vh; align-items: flex-start; }
+  .about-header .section-title { font-size: 4rem; }
+  .about-grid { grid-template-columns: repeat(2, 1fr); gap: 6rem; }
+  .about-image-column { transform: translateX(0); }
+  .about-image-wrapper { width: 30rem; height: 30rem; }
+  
+  .stat-bubble-desktop {
+    display: flex;
+    width: 80px;
+    height: 80px;
+  }
+  /* ZMIANA 5: Przywrócenie różowego koloru wartości w bąbelkach na desktopie */
+  .stat-bubble-desktop .value { 
+    font-size: 1.5rem;
+    color: var(--color-pink-500);
+  }
+  .stat-bubble-desktop .label { 
+    font-size: 0.75rem;
+  }
+
+  .stat-bubble-mobile {
+    display: none;
+  }
+
+  /* Oryginalne pozycje bąbelków desktopowych */
+  .stat-bubble-1 { top: 1.5rem; left: -1.5rem; }
+  .stat-bubble-2 { top: 6rem; right: -3rem; }
+  .stat-bubble-3 { bottom: -2rem; left: 4rem; }
+
+  .about-text-content { text-align: left; height: 30rem; display: flex; flex-direction: column; justify-content: center; }
+  .about-subtitle { font-size: 2rem; }
+  .about-cta-button { align-self: flex-start; }
+  .stats-box-grid { justify-content: start; }
+}

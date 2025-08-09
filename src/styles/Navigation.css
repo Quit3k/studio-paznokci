@@ -1,0 +1,167 @@
+/* src/styles/Navigation.css */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem; /* 80px */
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+  text-decoration: none; 
+}
+
+.navbar-logo .title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+}
+
+.navbar-logo .title-main {
+  font-family: var(--font-serif);
+  color: var(--color-black);
+}
+
+.navbar-logo .title-secondary {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-pink-500);
+}
+
+.desktop-nav-links {
+  display: none;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* ZMIANA 1: Poprawka linków nawigacji */
+.nav-link {
+  color: var(--color-gray-700); /* Zawsze ten sam kolor tekstu */
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1rem;
+}
+.nav-link:hover {
+  color: var(--color-gray-700); /* Nadpisujemy domyślny niebieski kolor linku */
+}
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: var(--color-pink-500);
+  transition: width 0.3s ease;
+}
+.nav-link:hover:after {
+  width: 100%;
+  left: 0;
+  background: var(--color-pink-500);
+}
+
+.desktop-nav-actions {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ZMIANA 2: Poprawka przycisku Zadzwoń */
+.call-button {
+  background-color: var(--color-pink-500);
+  color: var(--color-white); /* Ustawiamy kolor na biały */
+  padding: 0.6rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+  text-decoration: none;
+}
+.call-button:hover {
+  color: var(--color-white); /* Zapewniamy, że kolor pozostaje biały */
+  transform: scale(1.05);
+}
+
+/* ZMIANA 4: Poprawka przycisku zmiany języka */
+.language-toggle {
+  font-weight: 500;
+  color: var(--color-gray-900);
+  background-color: transparent;
+  border: 1px solid var(--color-gray-900);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.language-toggle:hover {
+  background-color: transparent; /* Bez czarnego wypełnienia */
+  color: var(--color-pink-500); /* Tekst zmienia kolor na różowy */
+  border-color: var(--color-pink-500); /* Ramka zmienia kolor na różowy */
+}
+
+.mobile-menu-toggle {
+  display: block;
+  color: var(--color-gray-900);
+  z-index: 100;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 5rem;
+  left: 0;
+  right: 0;
+  background-color: var(--color-white);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  transform: translateY(-150%);
+  transition: transform 0.4s ease-in-out;
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-menu .nav-link {
+  font-size: 1.25rem;
+}
+
+.mobile-menu-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav-links { display: flex; }
+  .desktop-nav-actions { display: flex; }
+  .mobile-menu-toggle { display: none; }
+}

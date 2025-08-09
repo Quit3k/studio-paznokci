@@ -1,0 +1,19 @@
+/* src/index.css */
+
+/* 1. Resetujemy domyślne marginesy przeglądarki z elementu body */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Lepsze zarządzanie rozmiarem pudełkowym */
+}
+
+/* 2. Ustawiamy fundament aplikacji na #root */
+#root {
+  /* Upewniamy się, że #root jest pełnoekranowym płótnem dla naszej aplikacji */
+  width: 100%;
+  min-height: 100vh;
+  
+  /* Ta linijka zapobiega przypadkowemu przewijaniu strony w poziomie,
+     co było problemem na wersji mobilnej */
+  overflow-x: hidden; 
+}

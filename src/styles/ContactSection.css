@@ -1,0 +1,128 @@
+/* src/styles/ContactSection.css */
+
+.contact-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: var(--color-gray-100);
+}
+
+/* ZMIANA: Grid jest teraz tylko siatką, bez tła i cienia */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* ZMIANA: Nowa klasa dla lewego, białego kafelka */
+.contact-details-card {
+  background-color: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--color-gray-100);
+  padding-bottom: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  color: var(--color-gray-900);
+}
+
+.contact-icon {
+  color: var(--color-pink-500);
+  flex-shrink: 0;
+}
+
+.contact-email-link {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.contact-email-link:hover {
+  color: var(--color-pink-500);
+}
+
+.hours-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+.opening-hours-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.opening-hours-list li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  color: var(--color-gray-600);
+}
+
+.opening-hours-list li.current-day {
+  color: var(--color-pink-500);
+  font-weight: 700;
+}
+
+.directions-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-pink-500);
+  color: var(--color-white);
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-align: center;
+  margin-top: auto; /* Wypycha przycisk na sam dół kafelka */
+}
+
+.directions-button:hover {
+  background-color: var(--color-pink-600);
+  transform: scale(1.05);
+}
+
+/* ZMIANA: Nowa klasa dla prawego kafelka z mapą */
+.contact-map-card {
+  width: 100%;
+  min-height: 500px; /* Minimalna wysokość, żeby mapa nie była za mała */
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.contact-map-card iframe {
+  border: 0;
+}
+
+/* Responsywność */
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .contact-details-card {
+    padding: 3rem;
+  }
+}
