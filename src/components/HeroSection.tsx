@@ -86,5 +86,5 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language, translations, scrol
     </section>
   );
 };
-
+        
 export default HeroSection;
