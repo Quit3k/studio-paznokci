@@ -70,10 +70,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language, translations, scrol
                 />
               </div>
               
-              <a href="https://www.facebook.com/NagelStudioJustynaKak/" className="hero-social-bubble bubble-instagram">
+              <a href="https://www.instagram.com/nagelstudio_j.kak/" className="hero-social-bubble bubble-instagram">
                 <Instagram size={24} />
               </a>
-              <a href="https://www.instagram.com/nagelstudio_j.kak/" className="hero-social-bubble bubble-facebook">
+              <a href="https://www.facebook.com/NagelStudioJustynaKak/" className="hero-social-bubble bubble-facebook">
                 <Facebook size={24} />
               </a>
               <a href="#" className="hero-social-bubble bubble-star">
