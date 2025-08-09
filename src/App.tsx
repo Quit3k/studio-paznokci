@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './styles/Global.css';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
