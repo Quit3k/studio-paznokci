@@ -29,7 +29,7 @@
 .about-image-column {
   display: flex;
   justify-content: center;
-  transform: translateX(-5%);
+  transform: translateX(-2%);
 }
 
 .about-image-wrapper {
@@ -80,8 +80,8 @@
 
 /* ZMIANA 1, 2, 3: Finałowe pozycje bąbelków na mobile */
 .stat-bubble-mobile-1 { top: -1rem; left: 0rem; }
-.stat-bubble-mobile-2 { top: 5rem; right: -4.5rem; }
-.stat-bubble-mobile-3 { bottom: -3rem; left: 3rem; }
+.stat-bubble-mobile-2 { top: 5rem; right: -1.5rem; }
+.stat-bubble-mobile-3 { bottom: -1rem; left: 3rem; }
 
 .about-text-content { text-align: center; }
 .about-subtitle { font-size: 1.7rem; color: var(--color-gray-900); margin-bottom: 0rem; font-weight: 300; }
@@ -106,8 +106,8 @@
   
   .stat-bubble-desktop {
     display: flex;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
   }
   /* ZMIANA 5: Przywrócenie różowego koloru wartości w bąbelkach na desktopie */
   .stat-bubble-desktop .value { 
@@ -124,8 +124,8 @@
 
   /* Oryginalne pozycje bąbelków desktopowych */
   .stat-bubble-1 { top: 1.5rem; left: -1.5rem; }
-  .stat-bubble-2 { top: 6rem; right: -3rem; }
-  .stat-bubble-3 { bottom: -2rem; left: 4rem; }
+  .stat-bubble-2 { top: 6rem; right: -1rem; }
+  .stat-bubble-3 { bottom: 0rem; left: 4rem; }
 
   .about-text-content { text-align: left; height: 30rem; display: flex; flex-direction: column; justify-content: center; }
   .about-subtitle { font-size: 2rem; }

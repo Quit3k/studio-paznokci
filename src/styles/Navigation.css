@@ -1,12 +1,17 @@
 /* src/styles/Navigation.css */
 
-/* --- Style dla paska nawigacji (bez zmian) --- */
+/* --- Style domyślne (dla DESKTOPU) --- */
 .navbar {
-  position: static;
-  background-color: var(--color-white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
   z-index: 50;
   border-bottom: 1px solid var(--color-gray-100);
 }
+
 .navbar-container {
   max-width: 1280px;
   margin-left: auto;
@@ -17,28 +22,34 @@
   align-items: center;
   height: 5rem;
 }
+
 .navbar-logo {
   flex-shrink: 0;
   text-decoration: none;
 }
+
 .navbar-logo .title {
   font-size: 1.5rem;
   font-weight: 700;
 }
+
 .navbar-logo .title-main {
   font-family: var(--font-serif);
   color: var(--color-black);
 }
+
 .navbar-logo .title-secondary {
   font-weight: 300;
   font-style: italic;
   color: var(--color-pink-500);
 }
+
 .desktop-nav-links {
-  display: none;
+  display: flex; /* Domyślnie pokazujemy na desktopie */
   align-items: center;
   gap: 2.5rem;
 }
+
 .nav-link {
   color: var(--color-gray-700);
   font-weight: 500;
@@ -69,11 +80,13 @@
   left: 0;
   background: var(--color-pink-500);
 }
+
 .desktop-nav-actions {
-  display: none;
+  display: flex; /* Domyślnie pokazujemy na desktopie */
   align-items: center;
   gap: 1rem;
 }
+
 .call-button {
   background-color: var(--color-pink-500);
   color: var(--color-white);
@@ -90,6 +103,7 @@
   color: var(--color-white);
   transform: scale(1.05);
 }
+
 .language-toggle {
   font-weight: 500;
   color: var(--color-gray-900);
@@ -106,58 +120,66 @@
   border-color: var(--color-pink-500);
 }
 
-
-/* --- Style dla menu mobilnego --- */
-.mobile-menu-toggle {
-  display: block;
-  color: var(--color-gray-900);
-  z-index: 100;
+/* Ukrywamy elementy mobilne domyślnie */
+.mobile-menu-toggle, .mobile-menu {
+  display: none;
 }
 
-.mobile-menu {
-  /* ZMIANA: Pozycja 'fixed' zamiast 'absolute', aby "uwolnić" menu */
-  position: fixed;
-  top: 0; /* Zaczyna się od samej góry ekranu */
-  left: 0;
-  right: 0;
-  /* ZMIANA: Wysokość na 100% ekranu */
-  height: 100vh;
-  background-color: var(--color-white);
-  padding: 5rem 2rem 2rem 2rem; /* Zwiększony padding od góry, aby nie nachodziło na przycisk X */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; /* Dodatkowe centrowanie w pionie */
-  gap: 1.5rem;
-  transform: translateX(100%); /* ZMIANA: Wysuwa się teraz z prawej strony, a nie z góry */
-  transition: transform 0.4s ease-in-out;
-  z-index: 99; /* Niżej niż przycisk, ale wyżej niż reszta strony */
-}
 
-.mobile-menu.open {
-  transform: translateX(0); /* Wjeżdża na ekran */
-}
-
-.mobile-menu .nav-link {
-  font-size: 1.5rem; /* Powiększamy linki w menu */
-}
-
-.mobile-menu-actions {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-/* Style dla desktopu (bez zmian) */
-@media (min-width: 1024px) {
+/* ========================================= */
+/* === Style tylko dla MOBILE (< 1024px) === */
+/* ========================================= */
+@media (max-width: 1023px) {
   .navbar {
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
+    position: static; /* Nawigacja przestaje pływać */
+    background-color: var(--color-white);
+    backdrop-filter: none;
   }
-  .desktop-nav-links { display: flex; }
-  .desktop-nav-actions { display: flex; }
-  .mobile-menu-toggle { display: none; }
+  
+  /* Chowamy elementy desktopowe na mobile */
+  .desktop-nav-links, .desktop-nav-actions {
+    display: none;
+  }
+  
+  /* Pokazujemy przycisk hamburgera */
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+  }
+  
+  /* Pokazujemy i stylujemy panel menu */
+  .mobile-menu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-white);
+    box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.1);
+    padding: 6rem 2rem 2rem 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 99;
+  }
+
+  .mobile-menu.open {
+    transform: translateX(0);
+  }
+  .mobile-menu .nav-link {
+    font-size: 1.5rem;
+  }
+  .mobile-menu-actions {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
 }

@@ -9,7 +9,7 @@
   50% { opacity: 0.15; }
 }
 
-/* Domyślne style są teraz stylami desktopowymi, bo takie nam podałeś */
+/* Style podstawowe (z Twojego dobrego kodu - dla DESKTOPU) */
 .hero-section {
   padding-top: 5rem;
   width: 100%;
@@ -72,11 +72,13 @@
   display: none;
 }
 
+/* ZMIANA 3: Dodajemy padding-top */
 .hero-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 1rem;
+  padding-top: 15px;
 }
 
 .hero-cta-primary, .hero-cta-secondary {
@@ -148,10 +150,13 @@
   justify-content: center;
 }
 .hero-social-bubble:hover { transform: scale(1.1); }
-.bubble-instagram { top: 2.5rem; right: -0.5rem; }
+
+/* ZMIANA 1 & 2: Poprawione pozycje ikon */
+.bubble-instagram { top: 2.5rem; right: 1.5rem; }
 .bubble-facebook { top: 6rem; left: -0.5rem; }
-.bubble-star { bottom: -4rem; right: 5rem; }
+.bubble-star { bottom: -0.5rem; right: 5rem; }
 .bubble-star svg { fill: var(--color-pink-500); }
+
 
 @media (min-width: 768px) {
   .hero-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
@@ -176,9 +181,6 @@
    .hero-image-wrapper { width: 27rem; height: 27rem; }
 }
 
-/* ========================================================= */
-/* === ZMIANA: Dodajemy style tylko dla mobile i tabletów === */
-/* ========================================================= */
 @media (max-width: 1023px) {
   .hero-section {
     padding-top: 0;
