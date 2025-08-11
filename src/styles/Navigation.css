@@ -1,16 +1,12 @@
 /* src/styles/Navigation.css */
 
+/* --- Style dla paska nawigacji (bez zmian) --- */
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
+  position: static;
+  background-color: var(--color-white);
   z-index: 50;
   border-bottom: 1px solid var(--color-gray-100);
 }
-
 .navbar-container {
   max-width: 1280px;
   margin-left: auto;
@@ -19,39 +15,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 5rem; /* 80px */
+  height: 5rem;
 }
-
 .navbar-logo {
   flex-shrink: 0;
-  text-decoration: none; 
+  text-decoration: none;
 }
-
 .navbar-logo .title {
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   font-weight: 700;
 }
-
 .navbar-logo .title-main {
   font-family: var(--font-serif);
   color: var(--color-black);
 }
-
 .navbar-logo .title-secondary {
   font-weight: 300;
   font-style: italic;
   color: var(--color-pink-500);
 }
-
 .desktop-nav-links {
   display: none;
   align-items: center;
   gap: 2.5rem;
 }
-
-/* ZMIANA 1: Poprawka linków nawigacji */
 .nav-link {
-  color: var(--color-gray-700); /* Zawsze ten sam kolor tekstu */
+  color: var(--color-gray-700);
   font-weight: 500;
   cursor: pointer;
   position: relative;
@@ -62,7 +51,7 @@
   font-size: 1rem;
 }
 .nav-link:hover {
-  color: var(--color-gray-700); /* Nadpisujemy domyślny niebieski kolor linku */
+  color: var(--color-gray-700);
 }
 .nav-link:after {
   content: '';
@@ -80,17 +69,14 @@
   left: 0;
   background: var(--color-pink-500);
 }
-
 .desktop-nav-actions {
   display: none;
   align-items: center;
   gap: 1rem;
 }
-
-/* ZMIANA 2: Poprawka przycisku Zadzwoń */
 .call-button {
   background-color: var(--color-pink-500);
-  color: var(--color-white); /* Ustawiamy kolor na biały */
+  color: var(--color-white);
   padding: 0.6rem 1.5rem;
   border-radius: 9999px;
   font-weight: 500;
@@ -101,11 +87,9 @@
   text-decoration: none;
 }
 .call-button:hover {
-  color: var(--color-white); /* Zapewniamy, że kolor pozostaje biały */
+  color: var(--color-white);
   transform: scale(1.05);
 }
-
-/* ZMIANA 4: Poprawka przycisku zmiany języka */
 .language-toggle {
   font-weight: 500;
   color: var(--color-gray-900);
@@ -117,11 +101,13 @@
   transition: all 0.2s ease;
 }
 .language-toggle:hover {
-  background-color: transparent; /* Bez czarnego wypełnienia */
-  color: var(--color-pink-500); /* Tekst zmienia kolor na różowy */
-  border-color: var(--color-pink-500); /* Ramka zmienia kolor na różowy */
+  background-color: transparent;
+  color: var(--color-pink-500);
+  border-color: var(--color-pink-500);
 }
 
+
+/* --- Style dla menu mobilnego --- */
 .mobile-menu-toggle {
   display: block;
   color: var(--color-gray-900);
@@ -129,27 +115,31 @@
 }
 
 .mobile-menu {
-  position: absolute;
-  top: 5rem;
+  /* ZMIANA: Pozycja 'fixed' zamiast 'absolute', aby "uwolnić" menu */
+  position: fixed;
+  top: 0; /* Zaczyna się od samej góry ekranu */
   left: 0;
   right: 0;
+  /* ZMIANA: Wysokość na 100% ekranu */
+  height: 100vh;
   background-color: var(--color-white);
-  padding: 2rem;
+  padding: 5rem 2rem 2rem 2rem; /* Zwiększony padding od góry, aby nie nachodziło na przycisk X */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Dodatkowe centrowanie w pionie */
   gap: 1.5rem;
-  transform: translateY(-150%);
+  transform: translateX(100%); /* ZMIANA: Wysuwa się teraz z prawej strony, a nie z góry */
   transition: transform 0.4s ease-in-out;
-  border-bottom: 1px solid var(--color-gray-100);
+  z-index: 99; /* Niżej niż przycisk, ale wyżej niż reszta strony */
 }
 
 .mobile-menu.open {
-  transform: translateY(0);
+  transform: translateX(0); /* Wjeżdża na ekran */
 }
 
 .mobile-menu .nav-link {
-  font-size: 1.25rem;
+  font-size: 1.5rem; /* Powiększamy linki w menu */
 }
 
 .mobile-menu-actions {
@@ -160,7 +150,13 @@
   gap: 1.5rem;
 }
 
+/* Style dla desktopu (bez zmian) */
 @media (min-width: 1024px) {
+  .navbar {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+  }
   .desktop-nav-links { display: flex; }
   .desktop-nav-actions { display: flex; }
   .mobile-menu-toggle { display: none; }

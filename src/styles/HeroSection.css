@@ -9,10 +9,7 @@
   50% { opacity: 0.15; }
 }
 
-/* ======================================= */
-/* === STYL PODSTAWOWY (MOBILE < 768px) === */
-/* ======================================= */
-
+/* Domyślne style są teraz stylami desktopowymi, bo takie nam podałeś */
 .hero-section {
   padding-top: 5rem;
   width: 100%;
@@ -50,7 +47,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem; /* Mniejszy odstęp na mobile */
+  gap: 2rem;
   align-items: center;
   width: 100%;
 }
@@ -72,7 +69,7 @@
   display: block;
 }
 .hero-description {
-  display: none; /* Ukryty na mobile */
+  display: none;
 }
 
 .hero-buttons {
@@ -83,7 +80,7 @@
 }
 
 .hero-cta-primary, .hero-cta-secondary {
-  padding: 1rem 2rem; /* Lekko mniejsze przyciski na mobile */
+  padding: 1rem 2rem;
   font-size: 1rem;
   border-radius: 9999px;
   font-weight: 500;
@@ -127,23 +124,14 @@
 }
 
 .hero-image-bg {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
+  width: 100%; height: 100%; border-radius: 50%;
   background-image: linear-gradient(to bottom right, var(--color-pink-400), var(--color-pink-600));
   padding: 1.25rem;
   box-shadow: var(--shadow-2xl);
   transition: transform 0.5s;
 }
-.hero-image-wrapper:hover .hero-image-bg {
-  transform: rotate(3deg);
-}
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
+.hero-image-wrapper:hover .hero-image-bg { transform: rotate(3deg); }
+.hero-image { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 
 .hero-social-bubble {
   position: absolute;
@@ -159,79 +147,45 @@
   align-items: center;
   justify-content: center;
 }
-.hero-social-bubble:hover {
-  transform: scale(1.1);
-}
+.hero-social-bubble:hover { transform: scale(1.1); }
 .bubble-instagram { top: 2.5rem; right: -0.5rem; }
 .bubble-facebook { top: 6rem; left: -0.5rem; }
 .bubble-star { bottom: -4rem; right: 5rem; }
 .bubble-star svg { fill: var(--color-pink-500); }
 
-/* ====================================================== */
-/* === NOWY BREAKPOINT: TABLET (średnie ekrany > 768px) === */
-/* ====================================================== */
 @media (min-width: 768px) {
-  .hero-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-  .hero-text-content {
-    order: 1;
-    text-align: left;
-  }
-  .hero-title {
-    font-size: 3.2rem;
-  }
-  .hero-description {
-    display: block; /* Pokazujemy opis */
-    font-size: 1.1rem;
-    margin-left: 0;
-  }
-  .hero-buttons {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-  .hero-image-content {
-    order: 2;
-  }
-  .hero-image-wrapper {
-    width: 22rem; /* Lekko powiększamy zdjęcie */
-    height: 22rem;
-  }
+  .hero-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+  .hero-text-content { order: 1; text-align: left; }
+  .hero-title { font-size: 3.2rem; }
+  .hero-description { display: block; font-size: 1.1rem; margin-left: 0; }
+  .hero-buttons { flex-direction: row; justify-content: flex-start; }
+  .hero-image-content { order: 2; }
+  .hero-image-wrapper { width: 22rem; height: 22rem; }
 }
 
-/* ========================================================== */
-/* === BREAKPOINT: LAPTOP / DESKTOP (duże ekrany > 1024px) === */
-/* ========================================================== */
 @media (min-width: 1024px) {
-  .hero-grid {
-    gap: 4rem; /* Większy odstęp */
-  }
-  .hero-title {
-    font-size: 3.8rem; /* Zmniejszamy, żeby się zmieściło */
-  }
-  .hero-description {
-    font-size: 1.25rem;
-  }
-  .hero-cta-primary, .hero-cta-secondary {
-    padding: 1.1rem 2.2rem; /* Przywracamy większe przyciski */
-    font-size: 1.1rem;
-  }
-  .hero-image-wrapper {
-    width: 25rem; /* Zmniejszamy, żeby się zmieściło */
-    height: 25rem;
-  }
+  .hero-grid { gap: 4rem; }
+  .hero-title { font-size: 3.8rem; }
+  .hero-description { font-size: 1.25rem; }
+  .hero-cta-primary, .hero-cta-secondary { padding: 1.1rem 2.2rem; font-size: 1.1rem; }
+  .hero-image-wrapper { width: 25rem; height: 25rem; }
 }
 
-/* ============================================================== */
-/* === BREAKPOINT: BARDZO DUŻE MONITORY (ekrany > 1280px)      === */
-/* ============================================================== */
 @media (min-width: 1280px) {
-   .hero-title {
-    font-size: 4rem; /* Na bardzo dużych ekranach możemy sobie pozwolić na większy tekst */
-  }
-  .hero-image-wrapper {
-    width: 27rem; /* Przywracamy duży rozmiar zdjęcia */
-    height: 27rem;
+   .hero-title { font-size: 4rem; }
+   .hero-image-wrapper { width: 27rem; height: 27rem; }
+}
+
+/* ========================================================= */
+/* === ZMIANA: Dodajemy style tylko dla mobile i tabletów === */
+/* ========================================================= */
+@media (max-width: 1023px) {
+  .hero-section {
+    padding-top: 0;
+    padding-bottom: 2rem;
+    height: auto;
+    min-height: calc(100vh - 5rem);
+    flex-direction: column;
+    justify-content: center;
   }
 }
